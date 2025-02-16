@@ -184,9 +184,6 @@ const IdeaForm = ({ setIdeas }) => {
                 focus:ring-4 focus:ring-orange-400 placeholder-orange-300
                 transition-all duration-300 hover:shadow-sm hover:shadow-orange-200"
             />
-            <div className="absolute right-3 top-3">
-              <span className="text-orange-500 animate-pulse">✶</span>
-            </div>
           </div>
         </div>
 

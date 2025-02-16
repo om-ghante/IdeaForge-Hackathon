@@ -24,14 +24,29 @@ app.post("/generate-idea", async (req, res) => {
           {
             parts: [
               {
-                text: `Generate ${numIdeas} innovative hackathon project ideas based on:
-                - Description: ${description}
-                - Theme: ${theme}
-                - Complexity: ${complexity}
-                - Impact level: ${impact}
-                - Preferred Tech Stack: ${techStack.join(", ")}
+                text: `Generate ${numIdeas} detailed hackathon project ideas using this template:
+                ## [Project Title]
+                **Rank:** ${complexity}
+                **Impact:** ${impact}
+                ### Core Concept
+                [2-3 sentence description]
                 
-                Provide a detailed project description.`,
+                ### Ninja Features
+                - Feature 1
+                - Feature 2
+                
+                ### Tech Stack
+                ${techStack.join(", ")}
+                
+                ### Mission Challenges
+                - Challenge 1
+                - Challenge 2
+                
+                Base this on:
+                - Theme: ${theme}
+                - Main Description: ${description}
+                
+                Use proper markdown formatting with ## headers. Separate different ideas with '~~~'`
               },
             ],
           },
@@ -40,7 +55,7 @@ app.post("/generate-idea", async (req, res) => {
     );
 
     const ideaText = response.data.candidates?.[0]?.content?.parts?.[0]?.text || "No idea generated.";
-    const ideasArray = ideaText.split("\n\n").map((idea) => `## ${idea}`);
+    const ideasArray = ideaText.split(/~~~+/g).filter(Boolean);
 
     res.json({ ideas: ideasArray });
   } catch (error) {
@@ -50,7 +65,7 @@ app.post("/generate-idea", async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Server Started');
+    res.send('Konoha Idea Generator Server');
 });
 
 const PORT = process.env.PORT || 7173;

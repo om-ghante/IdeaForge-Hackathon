@@ -49,5 +49,9 @@ app.post("/generate-idea", async (req, res) => {
   }
 });
 
+app.get('/', (req, res) => {
+    res.send('Server Started');
+});
+
 const PORT = process.env.PORT || 7173;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

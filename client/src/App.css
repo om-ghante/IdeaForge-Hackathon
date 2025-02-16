@@ -1,61 +1,61 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
+@keyframes fade-in-up {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin-slow {
   to {
     transform: rotate(360deg);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes shine {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 150%;
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
-.read-the-docs {
-  color: #888;
-}
-.prose {
-  max-width: 100%;
-  line-height: 1.6;
+@keyframes ninja-sign {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
-.prose h2 {
-  color: #1a202c;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
 }
 
-.prose p {
-  margin-bottom: 1rem;
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
 }
 
-.prose ul {
-  list-style-type: disc;
-  margin-left: 1.5rem;
+.animate-shine {
+  animation: shine 1.5s ease-in-out infinite;
 }
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-ninja-sign {
+  animation: ninja-sign 1s ease-in-out infinite;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }

@@ -25,7 +25,7 @@ app.post("/generate-idea", async (req, res) => {
             parts: [
               {
                 text: `Generate ${numIdeas} detailed hackathon project ideas using this template:
-                ## [Project Title]
+                ## **Project Title**
                 **Rank:** ${complexity}
                 **Impact:** ${impact}
                 ### Core Concept

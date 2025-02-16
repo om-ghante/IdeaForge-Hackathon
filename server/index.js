@@ -40,9 +40,18 @@ app.post("/generate-idea", async (req, res) => {
     );
 
     const ideaText = response.data.candidates?.[0]?.content?.parts?.[0]?.text || "No idea generated.";
-    const ideasArray = ideaText.split("\n\n").map((idea) => `## ${idea}`);
 
+    // Splitting ideas based on numbered format (1. Project Title, 2. Project Title, etc.)
+    const ideasArray = ideaText
+      .split(/\n\*\*\d+\.\sProject Title:/) // Detects "**1. Project Title:**"
+      .map((idea, index) => index === 0 ? idea.trim() : `**Project Title:**${idea.trim()}`)
+      .filter((idea) => idea.length > 0);
+    
+    console.log("Processed Ideas Array:", ideasArray);
+    
     res.json({ ideas: ideasArray });
+    
+  
   } catch (error) {
     console.error("Error generating idea:", error?.response?.data || error.message);
     res.status(500).json({ error: "Failed to generate idea. Please try again." });

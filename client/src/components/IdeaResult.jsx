@@ -43,7 +43,7 @@ const IdeaResult = ({ ideas = [] }) => {
                   <span className="text-sm bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
                     {idea.match(/Rank Mission/)
                       ? idea.split("\n")[0].replace("#", "").trim()
-                      : "D-Rank Mission"}
+                      : "Mission Scroll"}
                   </span>
                 </div>
                 <ReactMarkdown className="prose prose-sm text-orange-900">

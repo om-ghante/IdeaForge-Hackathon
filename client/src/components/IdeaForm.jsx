@@ -176,10 +176,10 @@ const IdeaForm = ({ setIdeas }) => {
           <div className="relative group">
             <input
               type="number"
-              min="1"
+              min="0"
               max="10"
               value={numIdeas}
-              onChange={(e) => setNumIdeas(parseInt(e.target.value) || 1)}
+              onChange={(e) => setNumIdeas(parseInt(e.target.value))}
               className="w-full p-3 border-2 border-orange-300 rounded-lg bg-orange-50 
                 focus:ring-4 focus:ring-orange-400 placeholder-orange-300
                 transition-all duration-300 hover:shadow-sm hover:shadow-orange-200"
